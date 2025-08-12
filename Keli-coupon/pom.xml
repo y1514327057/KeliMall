@@ -16,6 +16,11 @@
     </properties>
     <dependencies>
         <dependency>
+            <groupId>com.Yts</groupId>
+            <artifactId>Keli-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
@@ -66,7 +71,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.yts.kelicoupon.KeliCouponApplication</mainClass>
+                    <mainClass>com.yts.Keli.coupon.KeliCouponApplication</mainClass>
                     <skip>true</skip>
                 </configuration>
                 <executions>
