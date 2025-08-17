@@ -59,7 +59,6 @@ public class CategoryController {
      * 修改
      */
     @RequestMapping("/update")
-   // @RequiresPermissions("product:category:update")
     public R update(@RequestBody CategoryEntity category){
 		categoryService.updateById(category);
 
@@ -69,11 +68,9 @@ public class CategoryController {
     /**
      * 删除
      */
-    @RequestMapping("/delete")
-   // @RequiresPermissions("product:category:delete")
+    @DeleteMapping("/delete")
     public R delete(@RequestBody Long[] catIds){
-		categoryService.removeByIds(Arrays.asList(catIds));
-
+        categoryService.removeMenusBatch(Arrays.asList(catIds));
         return R.ok();
     }
 
