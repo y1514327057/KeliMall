@@ -1,13 +1,11 @@
 package com.yts.keliproduct;
 
 import com.yts.Keli.product.KeliProductApplication;
-import com.yts.Keli.product.dao.BrandDao;
 import com.yts.Keli.product.entity.BrandEntity;
 import com.yts.Keli.product.service.BrandService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootTest(classes = KeliProductApplication.class)
 class KeliProductApplicationTests {

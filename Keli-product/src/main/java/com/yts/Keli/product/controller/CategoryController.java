@@ -1,20 +1,15 @@
 package com.yts.Keli.product.controller;
 
 import java.util.Arrays;
-import java.util.Map;
+import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.yts.Keli.product.entity.CategoryEntity;
 import com.yts.Keli.product.service.CategoryService;
-import com.yts.common.utils.PageUtils;
 import com.yts.common.utils.R;
 
+import javax.annotation.Resource;
 
 
 /**
@@ -27,26 +22,22 @@ import com.yts.common.utils.R;
 @RestController
 @RequestMapping("product/category")
 public class CategoryController {
-    @Autowired
+    @Resource
     private CategoryService categoryService;
 
     /**
-     * 列表
+     * 查询所有分类 并且组装成树形结构
      */
-    @RequestMapping("/list")
-   // @RequiresPermissions("product:category:list")
-    public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = categoryService.queryPage(params);
-
-        return R.ok().put("page", page);
+    @GetMapping("/list/tree")
+    public R list(){
+        List<CategoryEntity> categoryEntities = categoryService.listWithTree();
+        return R.ok().put("data", categoryEntities);
     }
-
 
     /**
      * 信息
      */
     @RequestMapping("/info/{catId}")
-    //@RequiresPermissions("product:category:info")
     public R info(@PathVariable("catId") Long catId){
 		CategoryEntity category = categoryService.getById(catId);
 

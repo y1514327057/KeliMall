@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.Yts</groupId>
-    <artifactId>Keli-product</artifactId>
+    <artifactId>Keli-gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Keli-product</name>
-    <description>Keli-product</description>
+    <name>Keli-gateway</name>
+    <description>Keli-gateway</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -14,20 +14,18 @@
         <spring-boot.version>2.6.13</spring-boot.version>
         <spring-cloud.version>2021.0.5</spring-cloud.version>
     </properties>
+
+
     <dependencies>
-        <!-- 依赖公共模块 -->
         <dependency>
             <groupId>com.Yts</groupId>
             <artifactId>Keli-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
 
         <dependency>
@@ -35,10 +33,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
+
     </dependencies>
     <dependencyManagement>
         <dependencies>
@@ -76,7 +71,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.yts.Keli.product.KeliProductApplication</mainClass>
+                    <mainClass>com.yts.keligateway.KeliGatewayApplication</mainClass>
                     <skip>true</skip>
                 </configuration>
                 <executions>
